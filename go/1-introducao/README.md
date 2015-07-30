@@ -70,5 +70,4 @@ Adiciona todos que possuem modificador defer em uma lista, executando os passos 
 A função Panic para o fluxo de controle e começa as ações de pânico. Quando uma função chama a função pânico, então a execução desta função irá parar, porém, todas as etapas com o modificador defer ainda serão executadas. A função Recover é utilizada para retomar o controle do fluxo do programa. Desta forma, a mesma não tem nenhum efeito se chamada normalmente no código.
 
 
-## Modificadores de acesso
 
