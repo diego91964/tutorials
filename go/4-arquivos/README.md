@@ -1,6 +1,11 @@
 #Manipulação de Arquivos
 
+
+A manipulção de arquivos é basicamente leitura escrita e criação, nos exemplos, podemos ver algumas formas de fazer tais manipulações.
+
 ## Bibliotecas
+
+Além disso, é possível realizar inumeras operações com arquivos através das bibliotecas importadas. Abaixo, segue listado a definição de cada uma das funções.
 
 ### bufio
 
@@ -102,6 +107,16 @@
 
 
 ### io/ioutil
+
+- [Variables](https://golang.org/pkg/io/ioutil/#pkg-variables)
+- [func NopCloser(r io.Reader) io.ReadCloser](https://golang.org/pkg/io/ioutil/#NopCloser)
+- [func ReadAll(r io.Reader) (- []byte, error)](https://golang.org/pkg/io/ioutil/#ReadAll)
+- [func ReadDir(dirname string) (- []os.FileInfo, error)](https://golang.org/pkg/io/ioutil/#ReadDir)
+- [func ReadFile(filename string) (- []byte, error)](https://golang.org/pkg/io/ioutil/#ReadFile)
+- [func TempDir(dir, prefix string) (name string, err error)](https://golang.org/pkg/io/ioutil/#TempDir)
+- [func TempFile(dir, prefix string) (f *os.File, err error)](https://golang.org/pkg/io/ioutil/#TempFile)
+- [func WriteFile(filename string, data - []byte, perm os.FileMode) error](https://golang.org/pkg/io/ioutil/#WriteFile)
+
 
 ### os
 
