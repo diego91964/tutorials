@@ -3,9 +3,9 @@
 A linguagem Go vem sendo utilizada em diversos projetos, então, é necessário um breve conhecimento da mesma.
 
 Nestes tutoriais serão abordados:
-- Introdução
-- Estrutura de Dados
-- Funções 
+- [1-Introdução](https://github.com/diego91964/tutorials/tree/master/go/1-introducao)
+- [2-Funções](https://github.com/diego91964/tutorials/tree/master/go/2-funcoes)
+- [3-Estrutura de Dados](https://github.com/diego91964/tutorials/tree/master/go/3-estrutura_de_dados)
 - Controle de Erros
 - Interação Web via Http
 - Interação com Banco de Dados
