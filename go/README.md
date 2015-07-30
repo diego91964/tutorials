@@ -6,10 +6,10 @@ Nestes tutoriais serão abordados:
 - [1-Introdução](https://github.com/diego91964/tutorials/tree/master/go/1-introducao)
 - [2-Funções](https://github.com/diego91964/tutorials/tree/master/go/2-funcoes)
 - [3-Estrutura de Dados](https://github.com/diego91964/tutorials/tree/master/go/3-estrutura_de_dados)
+- [4-Manipulação de Arquivos](https://github.com/diego91964/tutorials/tree/master/go/4-arquivos)
 - Controle de Erros
 - Interação Web via Http
 - Interação com Banco de Dados
-- Leitura de Arquivos
 - Banco de Dados
 - Autenticação
 - Migração de Banco de Dados
