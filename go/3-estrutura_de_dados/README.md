@@ -1,4 +1,4 @@
-#Tipos de Dados
+#3 - Estrutura de Dados da Linguagem Go
 
 ## [Method sets](https://golang.org/ref/spec#Method_sets)
 ## [Boolean types](https://golang.org/ref/spec#Boolean_types)
