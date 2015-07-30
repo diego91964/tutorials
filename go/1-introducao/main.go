@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 import "math"
+import "runtime"
+import "time"
 
 // Comentarios sao feitos assim
 
@@ -57,6 +59,31 @@ func main() {
 		fmt.Println("Tuning a IF Condição 2")
 	}
 
-	
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		fmt.Println("OS X.")
+	case "linux":
+		fmt.Println("Linux.")
+	default:
+		fmt.Printf("%s.", os)
+	}
+
+	t := time.Now()
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("Good morning!")
+	case t.Hour() < 17:
+		fmt.Println("Good afternoon.")
+	default:
+		fmt.Println("Good evening.")
+	}
+
+	fmt.Println("counting")
+
+	for i := 0; i < 10; i++ {
+		defer fmt.Println(i)
+	}
+
+	fmt.Println("done")
 }
 
