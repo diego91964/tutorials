@@ -1,4 +1,4 @@
-#Funções
+#2 - Funções
 
 Uma função é uma parte independente do código, que mapeia zero ou mais parâmetros de entrada para zero ou mais parâmetros de saída. A principal função que já é conhecida neste ponto é a função main.
 
