@@ -21,6 +21,7 @@ type MyFloat float64
 
 type MyString string
 
+var m map[string]point
 
 func main() {
 
@@ -28,6 +29,8 @@ func main() {
   trabalhandoComInterface()
   trabalhandoComStruct()
   trabalhandoComSlice()
+  trabalhandoComMaps()
+  trabalhandoComCannels()
 }
 
 
@@ -94,6 +97,7 @@ func trabalhandoComInterface () {
 
 }
 
+// Implementação da Interface
 func (f MyFloat) Abs() float64 {
     if f < 0 {
         return float64(-f)
@@ -101,7 +105,49 @@ func (f MyFloat) Abs() float64 {
     return float64(f)
 }
 
-
+// Implementação da Interface
 func (f MyString) Abs() float64 {
    return float64(666)
+}
+
+
+func trabalhandoComMaps () {
+
+    m = make(map[string]point)
+    m["endereco"] = point{
+        40, 74,
+    }
+    fmt.Println(m["endereco"])
+}
+
+
+func sum(a []int, c chan int) {
+    sum := 0
+    for _, v := range a {
+        sum += v
+    }
+    c <- sum // send sum to c
+}
+
+func  trabalhandoComCannels() {
+    
+    a := []int{7, 2, 8, -9, 4, 0}
+
+    c := make(chan int)
+
+    go sum(a[:3], c)
+    go sum(a[3:], c)
+    go sum(a[0:1], c)
+
+    y := <-c
+    x := <-c
+    z := <-c
+
+    go sum(a[0:1], c)
+
+    k := <-c
+
+   
+
+   fmt.Println(x, y, z, k, x+y)
 }

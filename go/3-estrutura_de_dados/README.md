@@ -70,7 +70,11 @@ Um tipo interface especifica um conjunto de interface de métodos. É interessan
 
 ## [Map types](https://golang.org/ref/spec#Map_types)
 
+Map consiste em um conjunto de dados não ordenados que são indexados por uma chave.
+
 
 ## [Channel types](https://golang.org/ref/spec#Channel_types)
+
+Um canal provê um mecanismo para execução concorrente através do enviou e recebimento de valores por um canal de comunicação. O canal poderá ter uma direção, ou ser em ambas as direções.
 
 
