@@ -32,13 +32,45 @@ Os tipois numéricos são semelhantes aos tipos de linguagem C:
 - rune. Representação paraint32
 
 ## [String types](https://golang.org/ref/spec#String_types)
+
+Um tipo String representa um conjunto de valores string. Um valor string consiste em uma sequência de bytes. As Strings são imutáveis, ou seja, uma vez criada, não é possível modificar seu conteúdo.
+
+
 ## [Array types](https://golang.org/ref/spec#Array_types)
+
+Um array consiste em uma sequência enumerável de elementos. O tamanho de um array sempre deverá ser positivo.
+
 ## [Slice types](https://golang.org/ref/spec#Slice_types)
+
+Um descritor para um segmento de uma matriz e fornece acesso a uma seqüência numerada de elementos do array. Um tipo slice denota o conjunto de todas os slices de arrays de seu tipo de elemento. O valor de um slice não inicializado é nulo.
+
+SliceType = "[" "]" ElementType .
+
+Assim como nos arrays, os slyces snão indexáceis e possuem um tamanho, diferentemente dos arrays, o tamanho de um slice pode ser alterado em tempo de execução. O exemplo ilustra como alterar o tamanho de um slice.
+
+
 ## [Struct types](https://golang.org/ref/spec#Struct_types)
+
+Um tipo struct se resume a um conjunto de elementos nomeados, chamados campos, cada campo possui um tipo e um nome. O nome de um campo pode ser explícito ou implícito.
+
 ## [Pointer types](https://golang.org/ref/spec#Pointer_types)
+
+O tipo ponteiro é bem semelhante da linguagem C, basicamente denota um ponteiro para uma posição, normalmente utilizado para arrays.
+
+
 ## [Function types](https://golang.org/ref/spec#Function_types)
+
+Um tipo função denota o conjunto de todas as funções com o mesmo parâmetro e o mesmo resultado. O valor de inicialização de uma váriavel de função é nulo.
+
+
 ## [Interface types](https://golang.org/ref/spec#Interface_types)
+
+Um tipo interface especifica um conjunto de interface de métodos. É interessante compreender que podem existir infinitas implementações de um método no mesmo arquivo, assim, tal implementação pode ser atribuída quando necessário.
+
+
 ## [Map types](https://golang.org/ref/spec#Map_types)
+
+
 ## [Channel types](https://golang.org/ref/spec#Channel_types)
 
 
