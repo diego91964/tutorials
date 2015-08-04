@@ -1,15 +1,44 @@
 package main
 
 import (
- "fmt"
- "net/http"
+	"fmt"
+	"log"
+	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
+func main() {
+	//servidorDeArquivosEstaticos()
+	
+
+	http.HandleFunc("/hijack", func(w http.ResponseWriter, r *http.Request) {
+		hj, ok := w.(http.Hijacker)
+		if !ok {
+			http.Error(w, "webserver doesn't support hijacking", http.StatusInternalServerError)
+			return
+		}
+		conn, bufrw, err := hj.Hijack()
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		// Don't forget to close the connection:
+		defer conn.Close()
+		bufrw.WriteString("Now we're speaking raw TCP. Say hi: ")
+		bufrw.Flush()
+		s, err := bufrw.ReadString('\n')
+		if err != nil {
+			log.Printf("error reading string: %v", err)
+			return
+		}
+		fmt.Fprintf(bufrw, "You said: %q\nBye.\n", s)
+		bufrw.Flush()
+	})
+
+	http.ListenAndServe(":8080", nil)
 }
 
-func main() {
-    http.HandleFunc("/", handler)
-    http.ListenAndServe(":8080", nil)
+
+func servidorDeArquivosEstaticos (){
+	log.Fatal(http.ListenAndServe(":8080", http.FileServer(http.Dir("/home/diego"))))
 }
+

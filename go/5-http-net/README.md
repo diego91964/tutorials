@@ -105,4 +105,4 @@ As principais funções para a interação web estão presentes na biblioteca ne
 - [func (t *Transport) CancelRequest(req *Request)](http://golang.org/pkg/net/http/#Transport.CancelRequest)
 - [func (t *Transport) CloseIdleConnections()](http://golang.org/pkg/net/http/#Transport.CloseIdleConnections)
 - [func (t *Transport) RegisterProtocol(scheme string, rt RoundTripper)](http://golang.org/pkg/net/http/#Transport.RegisterProtocol)
-- [func (t *Transport) RoundTrip(req *Request) (resp *Response, err error)]</dl>	(http://golang.org/pkg/net/http/#Transport.RoundTrip)
+- [func (t *Transport) RoundTrip(req *Request)(resp *Response, err error)](http://golang.org/pkg/net/http/#Transport.RoundTrip)

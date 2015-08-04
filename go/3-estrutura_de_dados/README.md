@@ -78,3 +78,6 @@ Map consiste em um conjunto de dados não ordenados que são indexados por uma c
 Um canal provê um mecanismo para execução concorrente através do enviou e recebimento de valores por um canal de comunicação. O canal poderá ter uma direção, ou ser em ambas as direções.
 
 
+# Exportação
+
+Para utilizar os campos de uma struct em um pacote externo, é necessário que o campo inicie com letra em Upper case. Caso contrário, você poderá lidar com uma mensagem semelhante a esta "implicit assignment of unexported field [...] in [...] literal"
