@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-Title: eventos-api
+Implementation-Version: 1.0
+Implementation-Vendor-Id: br.uaijug.tutorial
+Build-Jdk: 1.7.0_79
+Built-By: diego
+Created-By: Maven Integration for Eclipse
+Main-Class: br.uaijug.tutorial.Application
+

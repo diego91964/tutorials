@@ -1,0 +1,4 @@
+CREATE CONSTRAINT ON (palestra:Palestra) ASSERT palestra.id IS UNIQUE
+CREATE CONSTRAINT ON (evento:Evento) ASSERT evento.id IS UNIQUE
+CREATE CONSTRAINT ON (participante:Participante) ASSERT participante.cpf IS UNIQUE
+CREATE CONSTRAINT ON (participante:Participante) ASSERT participante.id IS UNIQUE

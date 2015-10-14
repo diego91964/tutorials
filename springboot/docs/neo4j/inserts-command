@@ -1,0 +1,22 @@
+LOAD CSV WITH HEADERS FROM "http://23.94.63.185/insert-evento.csv" AS csvLine
+CREATE (evento:Evento { id: toInt(csvLine.id), nome: csvLine.nome, cidade: csvLine.cidade, local: csvLine.local })
+
+LOAD CSV WITH HEADERS FROM "http://23.94.63.185/insert-palestra.csv" AS csvLine
+CREATE (palestra:Palestra { id: toInt(csvLine.id), titulo: csvLine.titulo, data: csvLine.data, descricao: csvLine.descricao, sublocal: csvLine.sublocal, hrinicio: csvLine.hrinicio, hrfim: csvLine.hrfim })
+
+LOAD CSV WITH HEADERS FROM "http://23.94.63.185/insert-participante.csv" AS csvLine
+CREATE (participante:Participante { id: toInt(csvLine.id), nome: csvLine.nome, cpf: csvLine.cpf, email: csvLine.email, telefone: csvLine.telefone })
+
+LOAD CSV WITH HEADERS FROM "http://23.94.63.185/relacao-palestra-evento.csv" AS csvLine
+MATCH (evento:Evento { id: toInt(csvLine.idevento)}),(palestra:Palestra { id: toInt(csvLine.idpalestra)})
+CREATE (palestra)-[:PERTENCE_A]->(evento)
+
+LOAD CSV WITH HEADERS FROM "http://23.94.63.185/relacao-evento-inscrito.csv" AS csvLine
+MATCH (evento:Evento { id: toInt(csvLine.idevento)}),(participante:Participante { id: toInt(csvLine.idparticipante)})
+CREATE (participante)-[:INSCRITO]->(evento)
+
+LOAD CSV WITH HEADERS FROM "http://23.94.63.185/relacao-palestra-inscrito.csv" AS csvLine
+MATCH (palestra:Palestra { id: toInt(csvLine.idpalestra)}),(participante:Participante { id: toInt(csvLine.idparticipante)})
+CREATE (participante)-[:INSCRITO_PALESTRA]->(palestra)
+
+
