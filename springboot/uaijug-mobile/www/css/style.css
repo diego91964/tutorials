@@ -1,0 +1,267 @@
+/* Empty. Add your own CSS if you like */
+.bar.bar-ufu {
+  border-color: #111;
+  background-color: #3B3174;
+  background-image:  url("../img/logo.png");
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: left; 
+  font: #000;
+}
+
+.bar.bar-ufu-no-logo {
+  border-color: #111;
+  background-color: #3B3174; 
+  font: #000;
+}
+
+.bar-ufu-title {
+	color: white;
+	font-size: 25px;
+	padding-left: 10%;
+}
+
+.wide-as-needed {
+  overflow: scroll;
+  white-space: nowrap;
+}
+.scroll { 
+  min-width: 100%;
+}
+.bar.bar-loading {
+  display: block;
+  height: 24px;
+  
+  /* starts right below a normal header */
+  top: 44px;
+  
+  /* make the text centered vertically and horizontally */
+  text-align: center;
+  padding: 0;
+  line-height: 24px;
+
+  /* transition 'sliding down' (check below)*/
+  -webkit-transition: 200ms all;
+}
+
+
+/* 
+ * make the content's top changes animate.
+ * might not always look good, but looks
+ * good when our loader is added & removed
+ */
+.has-header {
+  -webkit-transition: 200ms top;
+}
+.has-header.has-loading {
+  /* 44px (header) + 24px */
+  top: 68px;
+}
+
+/* make loading bar slide up/down */
+.bar-loading.ng-enter,
+.bar-loading.ng-leave.ng-leave-active {
+  height: 0;
+  border-width: 0px;
+}
+.bar-loading.ng-enter.ng-enter-active,
+.bar-loading.ng-leave {
+  height: 24px;
+  border-width: 1px;
+}
+
+.scroll-bar-indicator
+{
+	display: none;
+}
+
+.border-balanced {
+	 border-color: #33cd5f;
+	 
+}
+
+.border-assertive {
+	 border-color: #e42012;
+
+}
+
+.button-ufu {
+	background-color: #f8f8f8;
+    
+    border-radius: 2px;
+    border-width: 1px 1px medium;
+    color: #444;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 42px;
+    margin: 0;
+    min-height: 47px;
+    min-width: 52px;
+    padding: 0 12px;
+    position: relative;
+    text-align: center;
+    text-overflow: ellipsis;
+    vertical-align: top;
+}
+
+.slider {
+  height: 100%;
+}
+.slider-slide {
+  padding-top: 20px;
+  color: #000;
+  text-align: center;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.bebidas:before {
+  content:  url("../img/modulos/restaurantes/bebidas.png");
+ 
+}
+ 
+.frutas:before{
+  content:  url("../img/modulos/restaurantes/frutas.png");
+}
+ 
+.graos:before{
+ content:  url("../img/modulos/restaurantes/graos.png");
+}
+ 
+.guarnicao:before {
+  content:  url("../img/modulos/restaurantes/guarnicao.png");
+}
+ 
+.opcao:before {
+ content:  url("../img/modulos/restaurantes/opcao.png");
+}
+
+.opcao-carne:before{
+  content:  url("../img/modulos/restaurantes/opcao-carne.png");
+}
+ 
+.opcao-vegetariana:before{
+  content:  url("../img/modulos/restaurantes/opcao-vegetariana.png");
+}
+ 
+.salada:before{
+  content:  url("../img/modulos/restaurantes/salada.png");
+}
+ 
+.sementes:before {
+  content:  url("../img/modulos/restaurantes/sementes.png");
+}
+
+
+body {
+  background-color: #1d2225;
+  text-align: center;
+  padding-top: 5em;
+}
+.pie {
+  display: inline-block;
+  position: relative;
+  width: 1em;
+  height: 1em;
+  background-color: #2f3e46;
+  font-size: 7em;
+  text-align: center;
+  @include border-radius(50%);
+}
+.slice-right {
+  position: absolute;
+  z-index: 11;
+  background-color: #ff913b;
+  width: 100%;
+  height: 100%;
+  clip: rect(0, .5em, .5em, .5em);
+  @include border-radius(50%);
+}
+.slice-left {
+  position: absolute;
+  z-index: 11;
+  background-color: #ff913b;
+  width: 100%;
+  height: 100%;
+  clip: rect(.5em, .5em, 1em, .5em);
+  @include border-radius(50%);
+  }
+  
+.percent {
+  position: absolute;
+  z-index: 20;
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
+  left: 3px;
+  background: #1d2225;
+  @include border-radius(50%);
+}
+.number {
+  position: absolute;
+  z-index: 30;
+  width: 100%;
+  height: 100%;
+  padding-top: 50%;
+  line-height: 0;
+  font-size: .3em;
+  color: #485c65;
+}
+
+$animation-speed: .3s;
+.slice-right {
+  -webkit-animation-delay: $animation-speed * 4;
+  -webkit-animation-duration: $animation-speed;
+  -webkit-animation-name: right-slice;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.slice-left {
+  -webkit-animation-delay: $animation-speed * 5;
+  -webkit-animation-duration: $animation-speed;
+  -webkit-animation-name: left-slice;
+  -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes right-slice {
+  from {
+    clip: rect(0, 50%, .5em, .5em);
+  }
+  50% {
+    clip: rect(0, 1em, .5em, .5em);
+  }
+  to {
+    clip: rect(0, 1em, 1em, .5em);
+  }
+}
+
+@-webkit-keyframes left-slice {
+  from {
+    clip: rect(.5em, .5em, 1em, .5em);
+  }
+  50% {
+    clip: rect(.5em, .5em, 1em, 0)
+  }
+  to {
+    clip: rect(.3em, .5em, 1em, 0);
+  }
+}
+
+
+

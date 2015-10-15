@@ -1,0 +1,457 @@
+<html ng-app="starter">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"> 
+    <link href="http://code.ionicframework.com/nightly/css/ionic.min.css" rel="stylesheet">
+    <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+  </head>
+  <body ng-controller="RestaurantesController">
+    
+    <ion-header-bar class="bar-ufu-no-logo">
+      <h1 class="bar-ufu-title">Restaurantes</h1>
+    </ion-header-bar>
+    <ion-header-bar class="bar-subheader">
+      <ion-scroll direction="x" class="wide-as-needed">
+        <a class="button-ufu inline-button border-balanced" ng-repeat="restaurante in restaurantesList"  >
+         {{restaurante}}</a>
+      </ion-scroll>
+    </ion-header-bar>
+    <div class="bar bar-loading bar-assertive" ng-if="data.isLoading">
+    </div>
+
+    <ion-content ng-class="{'has-loading': data.isLoading}">
+      <!--<h1 ng-if="restauranteSelecionado" >{{restauranteSelecionado.nome}}</h1> -->
+      <ion-slide-box active-slide="myActiveSlide">
+
+        <!--<ion-slide ng-repeat = "cardapio in restauranteSelecionado.cardapio">
+          <div class="box">
+            <h1>{{cardapio.Arroz}}</h1>
+
+          </div>
+        </ion-slide> -->
+        
+
+         <ion-slide >
+          <div class="box">
+            <h1>Segunda Feira</h1> 
+            <h4><span class="badge badge-balanced">13/07/2015  - Aberto ate 13:30</span> </h4> 
+            <!-- <h4><span class="badge badge-energized">Lotaçao - 50%</span> </h4>  -->
+            <h4>Lotaçao (75.2%)</h4>
+            <progress max="100" value="75.2"> </progress> 
+            <ul class="list">
+
+              <li class="item item-icon-left">
+                <i class="icon graos"></i>
+                <h2 align="left">Arroz</h2>
+                <h4 align="left">100g : 150 cal</h4>
+                <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left">
+                <i class="icon graos"></i>
+                <h2 align="left">Arroz Integral</h2>
+                <h4 align="left">100g : 95 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon opcao-carne"></i>
+                <h2 align="left">Frango xadrez </h2>
+                <h4 align="left">100g : 85 cal</h4>
+                <span class="badge badge-energized">A</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+               <li class="item item-icon-left" >
+                <i class="icon opcao-vegetariana"></i>
+                <h2 align="left">Rocambole de PTS</h2>
+                <h4 align="left">100g : 385 cal</h4>
+                <span class="badge badge-energized">G-L</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon bebidas"></i>
+                <h2 align="left">Leite </h2>
+                <h4 align="left">100ml : 100 cal</h4>
+                <span class="badge badge-energized">L</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon bebidas"></i>
+                <h2 align="left">Suco de Laranja</h2>
+                <h4 align="left">100ml : 156 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+               <li class="item item-icon-left" >
+                <i class="icon salada"></i>
+                <h2 align="left">Acelga e Tomate</h2>
+                <h4 align="left">100g : 20 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon sementes"></i>
+                <h2 align="left">Feijao Carioca</h2>
+                <h4 align="left">100g : 320 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+            </ul>
+
+            <div align = "left" >
+              
+              <h4>Funcionamento:</h4>
+              <h5>Desjejum: 06:30 - 07:30</h5>
+              <h5>Almoço: 10:30 - 13:30</h5>
+              <h5>Jantar: 17:00 - 19:30</h5>
+
+              <h4>Restriçoes Alimentares:</h4>
+              <h5>A - Presença de Açucar </h5>
+              <h5>L - Presença de Lactose </h5>
+              <h5>G - Presença de Gluten </h5>
+
+            </div>
+
+            
+
+            <br/> 
+            <br/>
+            <br/>
+          </div>
+        </ion-slide>
+        <ion-slide >
+          <div class="box">
+            <h1>Terça Feira</h1>
+            <h4><span class="badge badge-assertive">14/07/2015  - Aberto a partir de 06:30</span> </h4> 
+            <ul class="list">
+
+              <li class="item item-icon-left" >
+                <i class="icon graos"></i>
+                <h2 align="left">Arroz</h2>
+                <h4 align="left">100g : 150 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon graos"></i>
+                <h2 align="left">Arroz Integral</h2>
+                <h4 align="left">100g : 95 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon opcao-carne"></i>
+                <h2 align="left">Frango xadrez</h2>
+                <h4 align="left">100g : 85 cal</h4>
+                <span class="badge badge-energized">A</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+               <li class="item item-icon-left" >
+                <i class="icon opcao-vegetariana"></i>
+                <h2 align="left">Torta de Soja Caramelizada</h2>
+                <h4 align="left">100g : 385 cal</h4>
+                <span class="badge badge-energized">A-G-L</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon bebidas"></i>
+                <h2 align="left">Leite</h2>
+                <h4 align="left">100ml : 100 cal</h4>
+                <span class="badge badge-energized">L</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+               <li class="item item-icon-left" >
+                <i class="icon salada"></i>
+                <h2 align="left">Acelga e Tomate</h2>
+                <h4 align="left">100g : 20 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon sementes"></i>
+                <h2 align="left">Feijao Carioca</h2>
+                <h4 align="left">100g : 320 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+            </ul>
+
+            <div align = "left" >
+              
+              <h4>Funcionamento:</h4>
+              <h5>Desjejum: 06:30 - 07:30</h5>
+              <h5>Almoço: 10:30 - 13:30</h5>
+              <h5>Jantar: 17:00 - 19:30</h5>
+
+              <h4>Restriçoes Alimentares:</h4>
+              <h5>A - Presença de Açucar </h5>
+              <h5>L - Presença de Lactose </h5>
+              <h5>G - Presença de Gluten </h5>
+
+            </div>
+
+            
+
+            <br/> 
+            <br/>
+            <br/>
+          </div>
+        </ion-slide>
+        <ion-slide >
+          <div class="box">
+            <h1>Quarta Feira</h1>
+
+            <h4><span class="badge badge-assertive">15/07/2015  - Aberto a partir de 06:30</span> </h4> 
+            <ul class="list">
+
+              <li class="item item-icon-left" >
+                <i class="icon graos"></i>
+                <h2 align="left">Arroz</h2>
+                <h4 align="left">100g : 150 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon graos"></i>
+                <h2 align="left">Arroz Integral</h2>
+                <h4 align="left">100g : 95 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon opcao-carne"></i>
+                <h2 align="left">Frango xadrez</h2>
+                <h4 align="left">100g : 85 cal</h4>
+                <span class="badge badge-energized">A</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+               <li class="item item-icon-left" >
+                <i class="icon opcao-vegetariana"></i>
+                <h2 align="left">Torta de Soja Caramelizada</h2>
+                <h4 align="left">100g : 385 cal</h4>
+                <span class="badge badge-energized">A-G-L</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon bebidas"></i>
+                <h2 align="left">Leite</h2>
+                <h4 align="left">100ml : 100 cal</h4>
+                <span class="badge badge-energized">L</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+               <li class="item item-icon-left" >
+                <i class="icon salada"></i>
+                <h2 align="left">Acelga e Tomate</h2>
+                <h4 align="left">100g : 20 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon sementes"></i>
+                <h2 align="left">Feijao Carioca</h2>
+                <h4 align="left">100g : 320 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+            </ul>
+
+           <div align = "left" >
+              
+              <h4>Funcionamento:</h4>
+              <h5>Desjejum: 06:30 - 07:30</h5>
+              <h5>Almoço: 10:30 - 13:30</h5>
+              <h5>Jantar: 17:00 - 19:30</h5>
+
+              <h4>Restriçoes Alimentares:</h4>
+              <h5>A - Presença de Açucar </h5>
+              <h5>L - Presença de Lactose </h5>
+              <h5>G - Presença de Gluten </h5>
+
+            </div>
+
+            
+
+            <br/> 
+            <br/>
+            <br/>
+
+          </div>
+        </ion-slide>
+        <ion-slide >
+          <div class="box">
+            <h1>Quinta Feira</h1>
+
+            <h4><span class="badge badge-assertive">16/07/2015  - Aberto a partir de 06:30</span> </h4> 
+            <ul class="list">
+
+              <li class="item item-icon-left" >
+                <i class="icon graos"></i>
+                <h2 align="left">Arroz</h2>
+                <h4 align="left">100g : 150 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon graos"></i>
+                <h2 align="left">Arroz Integral</h2>
+                <h4 align="left">100g : 95 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon opcao-carne"></i>
+                <h2 align="left">Frango xadrez</h2>
+                <h4 align="left">100g : 85 cal</h4>
+                <span class="badge badge-energized">A</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+               <li class="item item-icon-left" >
+                <i class="icon opcao-vegetariana"></i>
+                <h2 align="left">Torta de Soja Caramelizada</h2>
+                <h4 align="left">100g : 385 cal</h4>
+                <span class="badge badge-energized">A-G-L</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon bebidas"></i>
+                <h2 align="left">Leite</h2>
+                <h4 align="left">100ml : 100 cal</h4>
+                <span class="badge badge-energized">L</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+               <li class="item item-icon-left" >
+                <i class="icon salada"></i>
+                <h2 align="left">Acelga e Tomate</h2>
+                <h4 align="left">100g : 20 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon sementes"></i>
+                <h2 align="left">Feijao Carioca</h2>
+                <h4 align="left">100g : 320 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+            </ul>
+
+            <div align = "left" >
+              
+              <h4>Funcionamento:</h4>
+              <h5>Desjejum: 06:30 - 07:30</h5>
+              <h5>Almoço: 10:30 - 13:30</h5>
+              <h5>Jantar: 17:00 - 19:30</h5>
+
+              <h4>Restriçoes Alimentares:</h4>
+              <h5>A - Presença de Açucar </h5>
+              <h5>L - Presença de Lactose </h5>
+              <h5>G - Presença de Gluten </h5>
+
+            </div>
+            
+
+            <br/> 
+            <br/>
+            <br/>
+
+          </div>
+        </ion-slide>
+        <ion-slide >
+          <div class="box">
+            <h1>Sexta Feira</h1>
+
+            <h4><span class="badge badge-assertive">17/07/2015  - Aberto a partir de 06:30</span> </h4> 
+            <ul class="list">
+
+              <li class="item item-icon-left" >
+                <i class="icon graos"></i>
+                <h2 align="left">Arroz</h2>
+                <h4 align="left">100g : 150 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon graos"></i>
+                <h2 align="left">Arroz Integral</h2>
+                <h4 align="left">100g : 95 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon opcao-carne"></i>
+                <h2 align="left">Frango xadrez</h2>
+                <h4 align="left">100g : 85 cal</h4>
+                <span class="badge badge-energized">A</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+               <li class="item item-icon-left" >
+                <i class="icon opcao-vegetariana"></i>
+                <h2 align="left">Torta de Soja Caramelizada</h2>
+                <h4 align="left">100g : 385 cal</h4>
+                <span class="badge badge-energized">A-G-L</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon bebidas"></i>
+                <h2 align="left">Leite</h2>
+                <h4 align="left">100ml : 100 cal</h4>
+                <span class="badge badge-energized">L</span>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+               <li class="item item-icon-left" >
+                <i class="icon salada"></i>
+                <h2 align="left">Acelga e Tomate</h2>
+                <h4 align="left">100g : 20 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+              <li class="item item-icon-left" >
+                <i class="icon sementes"></i>
+                <h2 align="left">Feijao Carioca</h2>
+                <h4 align="left">100g : 320 cal</h4>
+              <h2 align="left"> <a href="#" class="ion-android-happy" ></a> <a href="#" class="ion-android-sad" ></a> </h2>
+              </li>
+
+            </ul>
+
+            <div align = "left" >
+              
+              <h4>Funcionamento:</h4>
+              <h5>Desjejum: 06:30 - 07:30</h5>
+              <h5>Almoço: 10:30 - 13:30</h5>
+              <h5>Jantar: 17:00 - 19:30</h5>
+
+              <h4>Restriçoes Alimentares:</h4>
+              <h5>A - Presença de Açucar </h5>
+              <h5>L - Presença de Lactose </h5>
+              <h5>G - Presença de Gluten </h5>
+
+            </div>
+            
+
+            <br/> 
+            <br/>
+            <br/>
+
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+    </ion-content>   
+
+  </body>
+</html>
