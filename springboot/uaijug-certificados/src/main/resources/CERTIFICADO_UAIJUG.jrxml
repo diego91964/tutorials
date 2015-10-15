@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="75867fc9-c8cc-42ff-a79b-a87b83cc31c8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="286"/>
+	<property name="ireport.y" value="112"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="certificado" backcolor="#F25B5B"/>
+	<parameter name="NOME_PARTICIPANTE" class="java.lang.String"/>
+	<parameter name="NOME_EVENTO" class="java.lang.String"/>
+	<parameter name="DIAS_EVENTO" class="java.lang.String"/>
+	<parameter name="NOME_INSTITUICAO" class="java.lang.String"/>
+	<parameter name="TOTAL_HORAS" class="java.lang.String"/>
+	<parameter name="NOME_CIDADE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nomeParticipante" class="java.lang.String"/>
+	<field name="nomeEvento" class="java.lang.String"/>
+	<field name="diasEvento" class="java.lang.String"/>
+	<field name="nomeInstituicao" class="java.lang.String"/>
+	<field name="totalHoras" class="java.lang.String"/>
+	<field name="nomeCidade" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="153" splitType="Stretch">
+			<staticText>
+				<reportElement x="220" y="0" width="393" height="144" uuid="f1c5b6a4-2e74-46e5-b3ba-c26bb551f6fb"/>
+				<textElement>
+					<font size="100"/>
+				</textElement>
+				<text><![CDATA[UaiJUG]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="9" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="10" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="161" splitType="Stretch">
+			<textField>
+				<reportElement x="15" y="12" width="771" height="141" uuid="3e61991f-5275-4aee-bf6f-28e5ccf65a03"/>
+				<textElement>
+					<font fontName="SansSerif" size="24"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Certificamos que "+$F{nomeParticipante}+" participou do evento "+$F{nomeEvento}+" com "+$F{totalHoras}+" horas de duração, realizado nos dia(s) "+$F{diasEvento}+" na instituição "+$F{nomeInstituicao}+" em "+$F{nomeCidade}+"."]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
