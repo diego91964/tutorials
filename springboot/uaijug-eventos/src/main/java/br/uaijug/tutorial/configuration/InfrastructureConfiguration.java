@@ -38,6 +38,12 @@ public class InfrastructureConfiguration {
 
 	private static final Log log = LogFactory.getLog(InfrastructureConfiguration.class);
 	
+	public static void main(String[] args) {
+	
+		PasswordEncoder encoder = new BCryptPasswordEncoder();
+		System.out.println(encoder.encode("ADMIN"));
+		
+	}
 	@Autowired
 	Environment env;
 
@@ -103,7 +109,7 @@ public class InfrastructureConfiguration {
 	}
 }
 
-@Configuration
+/*@Configuration
 class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdapter {
  
 	@Autowired
@@ -115,7 +121,7 @@ class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdapter {
 		auth.jdbcAuthentication().dataSource(dataSource)
 			.passwordEncoder(passwordEncoder())
 			.usersByUsernameQuery("SELECT CREDENCIAL_APLICACAO AS username, SENHA_APLICACAO AS password, IND_ATIVO AS enabled FROM CREDENCIAIS_APLICACOES WHERE CREDENCIAL_APLICACAO=?")
-			.authoritiesByUsernameQuery("SELECT A.CREDENCIAL_APLICACAO AS username, B.ACRONIMO AS role FROM REDENCIAIS_APLICACOES A, PAPEIS_APLICACOES B, PAPEIS_CREDENCIAIS C WHERE A.ID_CREDENCIAL_APLICACAO = C.ID_CREDENCIAL_APLICACAO AND B.ID_PAPEL_APLICACAO = C.ID_PAPEL_APLICACAO AND A.CREDENCIAL_APLICACAO=?");
+			.authoritiesByUsernameQuery("SELECT A.CREDENCIAL_APLICACAO AS username, B.ACRONIMO AS role FROM CREDENCIAIS_APLICACOES A, PAPEIS_APLICACOES B, PAPEIS_CREDENCIAIS C WHERE A.ID_CREDENCIAL_APLICACAO = C.ID_CREDENCIAL_APLICACAO AND B.ID_PAPEL_APLICACAO = C.ID_PAPEL_APLICACAO AND A.CREDENCIAL_APLICACAO=?");
 	}
 	
 	@Bean
@@ -160,6 +166,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     //csrf().disable();
 	  
 	  http.httpBasic().and().authorizeRequests().//
+	  	//antMatchers(HttpMethod.GET, "/participante/**").hasRole("ADMIN").//
 		antMatchers(HttpMethod.POST, "/employees").hasRole("ADMIN").//
 		antMatchers(HttpMethod.PUT, "/employees/**").hasRole("ADMIN").//
 		antMatchers(HttpMethod.PATCH, "/employees/**").hasRole("ADMIN").and().//
@@ -174,4 +181,45 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //  void handleBadRequests(HttpServletResponse response) throws IOException {
 //      response.sendError(HttpStatus.BAD_REQUEST.value(), "Please try again and with a non empty string as 'name'");
 //  }
+}*/
+
+@Configuration
+class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdapter {
+
+    @Autowired
+    PooledDataSource dataSource;
+
+    @Override
+    public void init(AuthenticationManagerBuilder auth) throws Exception {
+
+        auth.jdbcAuthentication().dataSource(dataSource)
+        .passwordEncoder(passwordEncoder())
+        .usersByUsernameQuery("SELECT CREDENCIAL_APLICACAO AS username, SENHA_APLICACAO AS password, IND_ATIVO AS enabled FROM CREDENCIAIS_APLICACOES WHERE CREDENCIAL_APLICACAO=?")
+        .authoritiesByUsernameQuery("SELECT A.CREDENCIAL_APLICACAO AS username, B.ACRONIMO AS role FROM CREDENCIAIS_APLICACOES A, PAPEIS_APLICACOES B, PAPEIS_CREDENCIAIS C WHERE A.ID_CREDENCIAL_APLICACAO = C.ID_CREDENCIAL_APLICACAO AND B.ID_PAPEL_APLICACAO = C.ID_PAPEL_APLICACAO AND A.CREDENCIAL_APLICACAO=?");
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        return encoder;
+    }
+
 }
+
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(jsr250Enabled = true)
+@Configuration
+class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Bean
+    public AuthenticationFailureHandler authenticationFailureHandler() {
+        return new SimpleUrlAuthenticationFailureHandler();
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.httpBasic().and().authorizeRequests().anyRequest().fullyAuthenticated().and().csrf().disable();
+    }
+}
+
+

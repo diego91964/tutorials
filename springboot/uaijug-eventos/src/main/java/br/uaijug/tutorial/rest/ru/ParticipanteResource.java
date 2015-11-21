@@ -71,7 +71,7 @@ public class ParticipanteResource {
 		
 	}
 	
-	@RequestMapping(value = "/buscarDadosCertificado/{idParticipante}/{idEvento}", method = RequestMethod.GET, produces = "text/plain; charset=utf-8")
+	@RequestMapping(value = "/buscarDadosCertificado/{idParticipante}/{idEvento}", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
 	@RolesAllowed({ "ADMIN" })
 	public HttpEntity<String> buscarDadosCertificado(
 			@PathVariable("idParticipante") String idParticipante,

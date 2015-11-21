@@ -29,7 +29,7 @@ public class EventoServiceImpl implements EventoService {
 		
 		RestGraphDatabase gds = new RestGraphDatabase(Constantes.SERVER_ROOT_URI, Constantes.USERNAME, Constantes.PASSWORD);
 		
-		String query = "MATCH (evento:Evento)  RETURN evento";
+		String query = "MATCH (evento:Evento) RETURN evento";
 		
 		RestAPI restAPI = gds.getRestAPI();
 		RestCypherQueryEngine queryEngine = new RestCypherQueryEngine(restAPI);

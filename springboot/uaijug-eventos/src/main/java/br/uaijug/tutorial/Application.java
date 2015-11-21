@@ -24,10 +24,7 @@ public class Application {
 //        }
 	}
 	
-	@Bean(destroyMethod = "shutdown")
-	public GraphDatabaseService graphDatabaseService() {
-		return new GraphDatabaseFactory().newEmbeddedDatabase("target/hello.db");
-	}
+
 
 	
 //	@Bean
