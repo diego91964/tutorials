@@ -87,7 +87,7 @@
 	<repositories>
 		<repository>
 			<id>local-artifactory</id>
-			<url>http://172.17.0.3:9981/artifactory/ext-snapshot-local</url>
+			<url>http://192.168.0.108:9981/artifactory/ext-snapshot-local</url>
 		</repository>
 	</repositories>
 	
